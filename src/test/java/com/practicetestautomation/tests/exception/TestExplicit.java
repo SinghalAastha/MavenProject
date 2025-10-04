@@ -15,11 +15,12 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class TestExplicit {
-    private WebDriver driver=new ChromeDriver(); //Declaring it in class so that driver can be used within all methods.
+    private WebDriver driver; //Declaring it in class so that driver can be used within all methods.
     @BeforeMethod(alwaysRun = true)
     @Parameters("Browser")
     public void setup(String Browser){
         System.out.println("Running Test in:" + Browser);
+        driver=new ChromeDriver();
         driver.get("https://practicetestautomation.com/practice-test-exceptions/");
         driver.manage().window().maximize();
     }
