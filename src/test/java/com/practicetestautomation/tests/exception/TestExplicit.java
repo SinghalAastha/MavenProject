@@ -51,4 +51,19 @@ public class TestExplicit {
         //Verify second input field is displayed
         Assert.assertTrue(threeSec.isDisplayed());
     }
+
+    public void TestElementNotInteractableException(){
+        //Click Add button
+        WebElement addClick= driver.findElement(By.id("add_btn"));
+        addClick.click();
+        //Wait for the second row to load
+        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+        //Type text into the second input field
+        WebElement threeSec=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='row2']/input")));
+        threeSec.click();
+        threeSec.sendKeys("Test");
+        //Push Save button using locator By.name(“Save”)
+        
+        //Verify text saved
+    }
 }
